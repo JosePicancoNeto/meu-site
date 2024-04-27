@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styledim.css">
+    <title>Beam Design</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="icon">
+            <h2 class="logo">Structs CALC</h2>
+        </div>
+
+        <div class="menu">
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li>
+                    <a href="service.html">SERVICE</a>
+                    <ul>
+                        <li><a href="metal.html">Estruturas Metálicas</a></li>
+                        <li><a href="hidraulica.html">Hidráulica Urbana</a></li>
+                        <li><a href="Fundacoes.html">Fundações e Estruturas de Suporte</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">DESIGN</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </div>
+
+        <div class="search">
+            <input class="srch" type="search" name="" placeholder="Type to text">
+            <a href="#"> <button class="btn">Search</button></a>
+        </div>
+    </div>
+    
+    <div class="flex-container">
+        <div class="flex-child magenta">
+            <section id="calculator">
+
+                <h1 id="title">
+                    Calculadora - Estruturas Metálicas.
+                </h1>
+
+                <section id="img">
+                    <img src="image/viga simplesmente apoiada.png" alt="">
+                </section>
+
+                <form id="formn1">
+                    <div class="input-box">
+                        <label for="g">
+                            Carga permanente - G
+                        </label>
+                        <div class="input-field">
+                            <input type="number" step="0.01" id="g" required>
+                            <span>kN/m²</span>
+                        </div>
+                    </div>
+    
+                    <div class="input-box">
+                        <label for="q">
+                            Carga variável - Q
+                        </label>
+                        <div class="input-field">
+                            <input type="number" step="0.01" id="q" required>
+                            <span>kN/m²</span>
+                        </div>
+                    </div>
+    
+                    <div class="input-box">
+                        <label for="L">
+                            Comprimento da viga - L
+                        </label>
+                        <div class="input-field">
+                            <input type="number" step="0.01" id="L" required>
+                            <span>kN/m²</span>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="fy">
+                            tensão de cedencia do aço - fy
+                        </label>
+                        <div class="input-field">
+                            <input type="number" step="0.01" id="fy" required>
+                            <span>MPa</span>
+                        </div>
+                    </div>
+                    
+                    <button id="calculate">
+                        Calcular
+                    </button>
+                </form>
+            </section>
+        </div>
+        
+        <div class="flex-child green">
+            <section id="results">
+                <div id="infos" class="hidden">
+                    <div id="result">
+                        <br>
+                        <table>
+                            <h4>Pré-dimensionamento da viga - Perfil IPE</h4>
+                            <tr>
+                                <th>Referencias</th>
+                                <th>Valores</th>
+                                <th>Unidade</th>
+                            </tr>
+                            <tr>
+                                <td>Carga atuante na viga - P<sub>Ed</sub></td>
+                                <td><span id="Peds"></span></td>
+                                <td>kN/m</td>
+                            </tr>
+                            <tr>
+                                <td>Esforço transverso na viga - V<sub>Ed</sub></td>
+                                <td><span id="Veds"></span></td>
+                                <td>kN</td>
+                            </tr>
+                            <tr>
+                                <td>Momento fletor na viga - M<sub>Ed</sub></td>
+                                <td><span id="Meds"></span></td>
+                                <td>kNm</td>
+                            </tr>
+                            <tr>
+                                <td>Módulo de resistência plástico - W<sub>pl</sub></td>
+                                <td><span id="wd"></span></td>
+                                <td>mm<sup>3</sup></td>
+                            </tr>
+                        </table>
+
+                        <br>
+                        <h4>Escolha do Perfil I</h4>
+                        <form id="formn2">
+                            <div class="input-box">
+                                <label for="gk">
+                                    Carga do perfil selecionado - G<sub>k</sub>
+                                </label>
+                                <div class="input-field">
+                                    <input type="number" step="0.01" id="gk" required>
+                                    <span>kN/m</span>
+                                </div>
+                            </div>
+
+                            <div class="input-box">
+                                <label for="wpl">
+                                    Módulo de resistência plástico - W<sub>pl</sub>
+                                </label>
+                                <div class="input-field">
+                                    <input type="number" step="0.01" id="wpl" required>
+                                    <span>mm³</span>
+                                </div>
+                            </div>
+
+                            <a id='tabela' href="pdf/ArcelorMittal_PV_FR_DE.pdf">Catalogo de perfis - ArcelorMittal.</a>
+
+                            <button id="calculate">
+                                Calcular
+                            </button>
+                        </form>
+
+                        <br>
+                        <table>
+                            <h4>Perfil Pré-dimensionado</h4>
+                            <tr>
+                                <th>Referencias</th>
+                                <th>Valores</th>
+                                <th>Unidade</th>
+                            </tr>
+                            <tr>
+                                <td>Peso próprio da viga - PP</td>
+                                <td><span id="pps"></span></td>
+                                <td>kN/m</td>
+                            </tr>
+                            <tr>
+                                <td>Carga atuante na viga - Ped</td>
+                                <td><span id="Pedns"></span></td>
+                                <td>kN/m</td>
+                            </tr>
+                            <tr>
+                                <td>Esforço transverso na viga - Ved</td>
+                                <td><span id="Vedns"></span></td>
+                                <td>kN</td>
+                            </tr>
+                            <tr>
+                                <td>Momento fletor na viga - Med</td>
+                                <td><span id="Medns"></span></td>
+                                <td>kNm</td>
+                            </tr>
+                            <tr>
+                                <td>Momento fletor resistente - Mrd</td>
+                                <td><span id="Mrds"></span></td>
+                                <td>kNm</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>  
+    </div>
+
+    <script src="scriptdim.js"></script>
+</body>
+</html>
